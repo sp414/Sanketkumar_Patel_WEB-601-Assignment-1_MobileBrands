@@ -64,6 +64,33 @@ export class ContentListComponent implements OnInit {
         imgURL: "../assets/oneplus8.jpg",
         type: "Smart Phone",
         tags: ["appliances", "smartphone"]
+      },
+      {
+        id: 6,
+        title: "Samsung Tab S8",
+        description: "Best tablet",
+        creator: "Samsung",
+        imgURL: "../assets/Samsung-table-S8.jpg",
+        type: "tablet",
+        tags: ["appliances", "tablet"]
+      },
+      {
+        id: 7,
+        title: "Apple ipad",
+        description: "Best tablet processor",
+        creator: "Apple",
+        imgURL: "../assets/apple-ipad.jpg",
+        type: "tablet",
+        tags: ["appliances", "tablet"]
+      },
+      {
+        id: 8,
+        title: "Apple watch",
+        description: "Best watch",
+        creator: "Apple",
+        imgURL: "../assets/apple-watch.jpg",
+        type: "",
+        tags: ["appliances", ""]
       }
     ]
   }
