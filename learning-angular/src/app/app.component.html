@@ -1,25 +1,5 @@
-<!-- <div class="Site_container">
+<div class="Site_container">
   <div class="content-card-wrapper">
     <app-content-list></app-content-list>
   </div>
 </div>
- -->
-
- <div>
-  <h3>Template reference variable and event binding</h3>
-  My Card Name input <input #cardName>
-  <button (click)="updatePage(cardName.value)">Submit</button>
-  {{ cardName.value }}
-</div>
-<div>
-  <h3>Two Way Binding</h3>
-  Change the title here: <input [(ngModel)]="title">
-  Title is set to : <strong>{{ title }}</strong>
-</div>
-<div>
-  <h3>Working with pipes</h3>
-  <div>{{ title | uppercase }}</div>
-  <div>{{ birthday | date | uppercase }}</div>
-</div>
-<app-content-card *ngFor="let item of (bunchOfFood | contentTagged); index as i; last as isLast" [foodItem]="item"
-  [class.is-last]="isLast"></app-content-card>
