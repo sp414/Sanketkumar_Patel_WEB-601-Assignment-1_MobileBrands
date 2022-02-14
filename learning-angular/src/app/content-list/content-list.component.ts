@@ -70,7 +70,7 @@ export class ContentListComponent implements OnInit {
         title: "Samsung Tab S8",
         description: "Best tablet",
         creator: "Samsung",
-        imgURL: "../assets/Samsung-table-S8.jpg",
+        imgURL: "../assets/S8-tablet.jpg",
         type: "tablet",
         tags: ["appliances", "tablet"]
       },
