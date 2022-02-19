@@ -9,8 +9,12 @@ export class ContentList {
   }
 
   getContentArray(): Content[] {
-      return this.contentArray;
-  }
+     return this.contentArray;
+  } 
+
+  /* get items(): Content[] {
+    return this._;
+  } */
 
   addItem(oneContent: Content): void {
       this.contentArray.push(oneContent);
