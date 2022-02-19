@@ -7,6 +7,8 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent implements OnInit {
+  searchMessage: string = "";
+  searchFlag: boolean = false;
 
   contentItems: Content[];
   constructor() { 
@@ -102,4 +104,21 @@ export class ContentListComponent implements OnInit {
     console.log("Card component's id:", id);
     console.log("Card component's title:", title);
   }
+  
+  checkForTitle(searchValue: string): void{
+    let searchList = this.contentItems.filter(c => c.title == searchValue);
+    if (searchList.length > 0){
+      this.searchMessage  = "Found the mobile!";
+      this.searchFlag = true;
+    }
+    else{
+      this.searchMessage  = "No mobile with that title";
+      this.searchFlag = false;
+    }
+  }
+  donothing(){
+
+  } 
+
+
 }
