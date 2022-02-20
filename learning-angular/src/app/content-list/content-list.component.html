@@ -1,5 +1,5 @@
 
-<div class="container">
+<!-- <div class="container">
     <div class= "">
          <div class="col-md-8">
                <div class="search">
@@ -9,8 +9,19 @@
           </div>
     </div>
  
- </div>
+ </div>  -->
 
+
+ <div class="search">
+    <input #search>
+    <button (click)="checkForTitle(search.value)">Check For Title</button>
+    <h4 class="success" *ngIf="searchFlag">Title found</h4>
+    <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
+  <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
+  </div>
+
+
+<!--
 
 <div class="content-wrapper">
     <div class="content-items-wrapper" *ngFor="let content of contentItems">
@@ -19,10 +30,10 @@
             <div><span class="id"> {{content.id}} </span></div>
             <div><span class="description"> {{content.description}}</span></div>
             <div class="creator"> {{content.creator}} </div>
-            <div class="content-type">{{content.type}} </div>
+            <div class="content-type" hover-affect="hve" class="btn text-center">{{content.type}} </div>
             <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
             <div class="content-tags-wrapper">
-                <span class="content-tags" *ngFor="let tag of content.tags">{{tag}} </span>
+                <span class="content-tags" hover-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
             </div>
         </div>
     </div>
@@ -34,10 +45,10 @@
             <div><span class="id"> {{content.id}} </span></div>
             <div><span class="description"> {{content.description}}</span></div>
             <div class="creator"> {{content.creator}} </div>
-            <div class="content-type">{{content.type}} </div>
+            <div class="content-type" hover-affect="hve" class="btn text-center">{{content.type}} </div>
             <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
             <div class="content-tags-wrapper">
-                <span class="content-tags" *ngFor="let tag of content.tags">{{tag}} </span>
+                <span class="content-tags" hover-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
             </div>
         </div>
     </div>
@@ -49,11 +60,95 @@
             <div><span class="id"> {{content.id}} </span></div>
             <div><span class="description"> {{content.description}}</span></div>
             <div class="creator"> {{content.creator}} </div>
-            <div class="content-type">{{content.type}} </div>
+            <div class="content-type" hover-affect="hve" class="btn text-center">{{content.type}} </div>
             <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
             <div class="content-tags-wrapper">
-                <span class="content-tags" *ngFor="let tag of content.tags">{{tag}} </span>
+                <span class="content-tags" hover-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="content-wrapper">
+    <div class="content-items-wrapper" *ngFor="let content of contentItems">
+        <div class="content-card">
+            <h3 class="title"> {{content.title}} </h3>
+            <div><span class="id"> {{content.id}} </span></div>
+            <div><span class="description"> {{content.description}}</span></div>
+            <div class="creator"> {{content.creator}} </div>
+            <div class="content-type" hover-affect="hve" class="btn text-center">{{content.type}} </div>
+            <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
+            <div class="content-tags-wrapper">
+                <span class="content-tags" hover-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-wrapper-mobile">
+    <div class="content-items-wrapper" *ngFor="let content of (contentItems | contentPipe:'Smart Phone')">
+        <div class="content-card">
+            <h3 class="title"> {{content.title}} </h3>
+            <div><span class="id"> {{content.id}} </span></div>
+            <div><span class="description"> {{content.description}}</span></div>
+            <div class="creator"> {{content.creator}} </div>
+            <div class="content-type" hover-affect="hve" class="btn text-center">{{content.type}} </div>
+            <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
+            <div class="content-tags-wrapper">
+                <span class="content-tags" hover-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-wrapper-tablet">
+    <div class="content-items-wrapper" *ngFor="let content of (contentItems | contentPipe:'tablet')">
+        <div class="content-card">
+            <h3 class="title"> {{content.title}} </h3>
+            <div><span class="id"> {{content.id}} </span></div>
+            <div><span class="description"> {{content.description}}</span></div>
+            <div class="creator"> {{content.creator}} </div>
+            <div class="content-type" hover-affect="hve" class="btn text-center">{{content.type}} </div>
+            <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
+            <div class="content-tags-wrapper">
+                <span class="content-tags" hover-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div (mouseenter) ="mouseEnter('div a') "  (mouseleave) ="mouseLeave('div A')">
+    <h2>Div A</h2>
+</div> 
+<div (mouseenter) ="mouseEnter('div b')"  (mouseleave) ="mouseLeave('div B')">
+    <h2>Div B</h2>
 </div>

@@ -92,7 +92,7 @@ export class ContentListComponent implements OnInit {
         creator: "Apple",
         imgURL: "../assets/apple-watch.jpg",
         type: "",
-        tags: ["appliances", ""]
+        tags: ["appliances", "Watch"]
       }
     ]
   }
