@@ -3,25 +3,25 @@
 import { Directive, HostListener, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[hover-affect]'
+  selector: '[my-affect]'
 })
 export class HoverAffectDirective {
   constructor(public elementRef:ElementRef) { }
-  @Input('hover-affect') hoverAffect:any;  
+  @Input('my-affect') myAffect:any;  
 
   ngOnInit(){
-  console.log(this.hoverAffect)
+  console.log(this.myAffect)
  }
   
   @HostListener('mouseenter') onMouseEnter() {
 
-    this.elementRef.nativeElement.classList.add(this.hoverAffect);
+    this.elementRef.nativeElement.classList.add(this.myAffect);
     
   
  }
 
   @HostListener('mouseleave') onMouseLeave() {
-    this.elementRef.nativeElement.classList.remove(this.hoverAffect);
+    this.elementRef.nativeElement.classList.remove(this.myAffect);
 }
 } 
  
