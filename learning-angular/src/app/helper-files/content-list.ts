@@ -8,7 +8,7 @@ export class ContentList {
       this.contentArray = [];
   }
 
-  getContentArray(): Content[] {
+  get getContentArray(): Content[] {
      return this.contentArray;
   } 
 
@@ -25,15 +25,17 @@ export class ContentList {
   }
 
   renderContent(index: number): string {
-    if (index >= this.contentArray.length || index < 0) {
+    if (index >= this.contentArray.length|| index < 0) {
       return "<div>Something went terribly wrong</div>"
     }
     let itemAtIndex = this.contentArray[index];
-    let tagsArray = this.contentArray[index].tags;
+    let tagsArray = this.contentArray[index].tags; //"tag1","tag2"
     return `<div class="title">${itemAtIndex.title}</div>
             <div class="description">${itemAtIndex.description}</div>
             <div class="creator">${itemAtIndex.creator}</div>
             <div class="image"><img src="${itemAtIndex.imgURL}" width="200"></div>
-            <div class="type">${itemAtIndex.type}</div>`;
+            <div class="type">${itemAtIndex.type}</div>;
+             <div class="tags">
+              <h2>${itemAtIndex.tags}</h2>`;
     }
 }

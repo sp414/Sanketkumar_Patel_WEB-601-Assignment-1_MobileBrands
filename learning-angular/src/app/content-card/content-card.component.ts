@@ -20,6 +20,8 @@ export class ContentCardComponent implements OnInit {
       description: "Best phone in the world",
       creator: "Apple",
       imgURL: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000"
+      
+    
     });
     this.myList.addItem({
       id: 1,
@@ -35,9 +37,11 @@ export class ContentCardComponent implements OnInit {
       description: "Best Proceessor",
       creator: "Google",
       imgURL: "../assets/Google-pixel.jpg",
-      type: "Smart Phone"
+      type: "Smart Phone",
+      tags : ["smartphone", "Mobile"]
+      
     });
-    this.contentArray = this.myList.getContentArray();
+    this.contentArray = this.myList.getContentArray;
     console.log(this.contentArray);
   }
 
