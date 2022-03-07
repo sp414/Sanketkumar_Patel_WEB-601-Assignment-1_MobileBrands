@@ -7,14 +7,15 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentPipe implements PipeTransform {
 
-  transform(contentList: any, value?: string): Content[] {
-    console.log(value);
-    const filteredContentList = contentList.filter((contentListItem: any) => {
-      console.log("contentlistitem typr", contentListItem.type);
-      console.log(value);
-      return contentListItem.type === value;
-    });
-    console.log(filteredContentList);
-    return filteredContentList;
+  transform(contentList: Content[],type?:string, ) {
+   
+    if(type === "Smart Phone" || type === 'Watch' || type=== 'Tablet'){
+    return contentList.filter(c => c.type === type ?
+    true : false);
+    }
+
+    else{
+      return contentList;
+    };
   }
 }
