@@ -16,7 +16,7 @@ export class ContentListComponent implements OnInit {
       description: "Best phone in the world",
       creator: "Apple",
       type: "Smart Phone",
-      imgURL: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000",
+      imgURL: "../assets/i-phone-13.jpg",
       tags: ["appliances", "smartphone"]
     },
     {
@@ -24,7 +24,7 @@ export class ContentListComponent implements OnInit {
       title: "Samsung S20",
       description: "Best camera phone",
       creator: "Samsung",
-      imgURL: "https://i.gadgets360cdn.com/products/large/samsung-galaxy-s20-379x800-1581443902.jpg",
+      imgURL: "../assets/samsung-s20.jpg",
       type: "Smart Phone",
       tags: ["appliances", "smartphone"]
     },
@@ -33,7 +33,7 @@ export class ContentListComponent implements OnInit {
       title: "Google pixel 6",
       description: "Best Proceessor",
       creator: "Google",
-      imgURL: "https://m.media-amazon.com/images/I/71EyTcGszpL._SX679_.jpg",
+      imgURL: "../assets/Google-pixel.jpg",
       type: "Smart Phone",
       tags: ["appliances", "smartphone"]
     },
@@ -42,7 +42,7 @@ export class ContentListComponent implements OnInit {
       title: "redmi note 10 pro",
       description: "Best display and processor",
       creator: "Mi",
-      imgURL: "https://m.media-amazon.com/images/I/81S-XYJlzTL._SL1500_.jpg",
+      imgURL: "../assets/redmi-10.jpg",
       type: "Smart Phone",
       tags: ["appliances", "smartphone"]
     },
@@ -51,7 +51,7 @@ export class ContentListComponent implements OnInit {
       title: "Oppo F-19",
       description: "Great Display",
       creator: "Oppo",
-      imgURL: "https://m.media-amazon.com/images/I/61I-UqlPd7S._SL1500_.jpg",
+      imgURL: "../assets/oppo-f19.jpg",
       type: "Smart Phone",
       tags: ["appliances", "smartphone"]
     },
@@ -60,7 +60,7 @@ export class ContentListComponent implements OnInit {
       title: "OnePlus 8",
       description: "First 5G phone",
       creator: "Oneplus",
-      imgURL: "https://m.media-amazon.com/images/I/51uEwkqjZTL._AC_SX522_.jpg",
+      imgURL: "../assets/oneplus8.jpg",
       type: "Smart Phone",
       tags: ["appliances", "smartphone"]
     },
@@ -69,7 +69,7 @@ export class ContentListComponent implements OnInit {
       title: "Samsung Tab S8",
       description: "Best tablet",
       creator: "Samsung",
-      imgURL: "https://images.samsung.com/in/galaxy-tab-s8/feature/buy/GalaxyTab_S8Ultra_AllColorKV_WithSPen_MO.jpg",
+      imgURL: "../assets/S8-tablet.jpg",
       type: "Tablet",
       tags: ["appliances", "tablet"]
     },
@@ -78,7 +78,7 @@ export class ContentListComponent implements OnInit {
       title: "Apple ipad",
       description: "Best tablet processor",
       creator: "Apple",
-      imgURL: "https://m.media-amazon.com/images/I/81gd3uyxc3L._AC_SY355_.jpg",
+      imgURL: "../assets/apple-ipad.jpg",
       type: "Tablet",
       tags: ["appliances", "tablet"]
     },
@@ -87,7 +87,7 @@ export class ContentListComponent implements OnInit {
       title: "Apple watch",
       description: "Best watch",
       creator: "Apple",
-      imgURL: "https://icdn.digitaltrends.com/image/digitaltrends/apple-watch-series-4-review_11-625x417-c.jpg",
+      imgURL: "../assets/apple-watch.jpg",
       type: "Watch",
       tags: ["appliances", "Watch"]
     }
