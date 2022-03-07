@@ -5,17 +5,18 @@ import { Content } from '../helper-files/content-interface';
 @Pipe({
   name: 'contentPipe'
 })
+
+
 export class ContentPipe implements PipeTransform {
 
-  transform(contentList: Content[],type?:string, ) {
-   
-    if(type === "Smart Phone" || type === 'Watch' || type=== 'Tablet'){
-    return contentList.filter(c => c.type === type ?
-    true : false);
-    }
-
-    else{
-      return contentList;
-    };
+  transform(contentList: any, value?: string): Content[] {
+    console.log(value);
+    const filteredContentList = contentList.filter((contentListItem: any) => {
+      console.log("contentlistitem typr", contentListItem.type);
+      console.log(value);
+      return contentListItem.type === value;
+    });
+    console.log(contentList);
+    return contentList;
   }
 }
