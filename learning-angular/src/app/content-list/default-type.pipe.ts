@@ -8,13 +8,13 @@ import { Content } from '../helper-files/content-interface';
 export class ContentPipe implements PipeTransform {
 
   transform(contentList: any, value?: string): Content[] {
-    console.log(value);
+    //console.log(value);
     const filteredContentList = contentList.filter((contentListItem: any) => {
-      console.log("contentlistitem typr", contentListItem.type);
-      console.log(value);
+      //console.log("contentlistitem typr", contentListItem.type);
+      //console.log(value);
       return contentListItem.type === value;
     });
-    console.log(filteredContentList);
+    //console.log(filteredContentList);
     return filteredContentList;
   }
 }

@@ -7,8 +7,11 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
+  
+  
 
   constructor() {
+    
   }
 
   ngOnInit(): void {}

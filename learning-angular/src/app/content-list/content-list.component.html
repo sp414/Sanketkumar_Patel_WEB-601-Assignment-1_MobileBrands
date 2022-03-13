@@ -1,73 +1,108 @@
-
-<!-- <div class="container">
-    <div class= "">
-         <div class="col-md-8">
-               <div class="search">
-                          <i class="Search"></i>  <input type="text"  placeholder="Find the here" > 
-                          
-                </div>
-          </div>
+<!-- <app-create-content (addme)="addNewdevice($event)"></app-create-content>
+<div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+            <div class="search">
+                <i class="fa fa-search"></i> <input type="text" id="mvnm" #mvnm class="form-control" placeholder="Search device">
+                <button (click)="isdevice(mvnm.value)" class="btn btn-primary">Search</button> &nbsp;
+                <div *ngIf="found" class="btn btn-success w-75">DEVICE FOUND</div> &nbsp;
+                <div *ngIf="notfound" class="btn btn-danger w-75">DEVICE NOT FOUND</div>
+            </div>
+        </div>
     </div>
- 
- </div>  -->
+</div>
+ -->
 
-
- <div class="search">
-    <input #search>
-    <button (click)="checkForTitle(search.value)">Check For Title</button>
-    <h4 class="success" *ngIf="searchFlag">Title found</h4>
-    <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
-  <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
-  </div>
-
-
+<h1 align="center">ALL THE DEVICES</h1>
 
 
 <div class="content-wrapper">
-    <div class="content-items-wrapper" *ngFor="let content of contentItems">
-       
-        <div class="content-card">
-            <h3 class="title"> {{content.title}} </h3>
-            <div><span class="id"> {{content.id}} </span></div>
-            <div><span class="description"> {{content.description}}</span></div>
-            <div class="creator"> {{content.creator}} </div>
-            <div class="content-type" my-affect="hve" class="btn text-center">{{content.type}} </div>
-            <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
-            <div class="content-tags-wrapper">
-                <span class="content-tags" my-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
+    <ng-container *ngFor="let device of (arr)">
+        <div class="content-items-wrapper" *ngIf="device.title !==ttl">
+            <div class='content_image_wrapper'><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
+                    src={{device.imgURL}} class="card-img-top">
+            </div>
+            <div class="card_content">
+                <h3 class="title"> {{device.title}} </h3>
+                <div><span class="id"> {{device.id}} </span></div>
+                <div><span class="description"> {{device.description}}</span></div>
+                <div class="creator"> {{device.creator}} </div>
+                <div class="content-type" my-affect="hve" class="btn text-center">{{device.type}} </div>
+                <div class="content-tags-wrapper">
+                    <span class="content-tags" my-affect="tagbd" *ngFor="let tag of device.tags">{{tag}} </span>
+                </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>
+
+<h1 align="center">Smart Phones</h1>
+
 <div class="content-wrapper-mobile">
-    <div class="content-items-wrapper" *ngFor="let content of (contentItems | contentPipe:'Smart Phone')">
-        <div class="content-card">
-            <h3 class="title"> {{content.title}} </h3>
-            <div><span class="id"> {{content.id}} </span></div>
-            <div><span class="description"> {{content.description}}</span></div>
-            <div class="creator"> {{content.creator}} </div>
-            <div class="content-type" my-affect="hve" class="btn text-center">{{content.type}} </div>
-            <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
-            <div class="content-tags-wrapper">
-                <span class="content-tags" my-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
+    <ng-container *ngFor="let device of (arr)">
+        <div *ngIf="device.type === 'Smart Phone'" class="content-items-wrapper">
+            <div class='content_image_wrapper'><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
+                    src={{device.imgURL}} class="card-img-top"></div>
+            <div class="content-card">
+                <h3 class="title"> {{device.title}} </h3>
+                <div><span class="id"> {{device.id}} </span></div>
+                <div><span class="description"> {{device.description}}</span></div>
+                <div class="creator"> {{device.creator}} </div>
+                <div class="content-type" my-affect="hve" class="btn text-center">{{device.type}} </div>
+                <div class="content-tags-wrapper">
+                    <span class="content-tags" my-affect="tagbd" *ngFor="let tag of device.tags">{{tag}} </span>
+                </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>
+
+
+<br>
+<h1 align="center">Tablets</h1>
+
 <div class="content-wrapper-tablet">
-    <div class="content-items-wrapper" *ngFor="let content of (contentItems | contentPipe:'tablet')">
-        <div class="content-card">
-            <h3 class="title"> {{content.title}} </h3>
-            <div><span class="id"> {{content.id}} </span></div>
-            <div><span class="description"> {{content.description}}</span></div>
-            <div class="creator"> {{content.creator}} </div>
-            <div class="content-type" my-affect="hve" class="btn text-center">{{content.type}} </div>
-            <div class="content-image" (click)="onImageClick(content.id, content.title)"><img *ngIf="content.imgURL" src="{{content.imgURL}}"></div>
-            <div class="content-tags-wrapper">
-                <span class="content-tags" my-affect="tagbd" *ngFor="let tag of content.tags">{{tag}} </span>
+    <ng-container *ngFor="let device of (arr)">
+        <div *ngIf="device.type === 'tablet'" class="content-items-wrapper">
+            <div class="content_image_wrapper"><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
+                    src={{device.imgURL}} class="card-img-top"></div>
+            <div class="content-card">
+                <h3 class="title"> {{device.title}} </h3>
+                <div><span class="id"> {{device.id}} </span></div>
+                <div><span class="description"> {{device.description}}</span></div>
+                <div class="creator"> {{device.creator}} </div>
+                <div class="content-type" my-affect="hve" class="btn text-center">{{device.type}} </div>
+
+                <div class="content-tags-wrapper">
+                    <span class="content-tags" my-affect="tagbd" *ngFor="let tag of device.tags">{{tag}} </span>
+                </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>
 
+<div class="single_device_wrapper">
+    <div class="input_wrapper_device_id">
+        <input type="text" [(ngModel)]="device_id" placeholder="Enter a device ID...">
+        <button (click)="showDevice(device_id)">Show the matched device..</button>
+    </div>
 
+    <ng-container *ngFor="let device of singleItem">
+        <div class="content-items-wrapper single_item">
+            <div class="content_image_wrapper"><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
+                    src={{device.imgURL}} class="card-img-top"></div>
+            <div class="content-card">
+                <h3 class="title"> {{device.title}} </h3>
+                <div><span class="id"> {{device.id}} </span></div>
+                <div><span class="description"> {{device.description}}</span></div>
+                <div class="creator"> {{device.creator}} </div>
+                <div class="content-type" my-affect="hve" class="btn text-center">{{device.type}} </div>
+
+                <div class="content-tags-wrapper">
+                    <span class="content-tags" my-affect="tagbd" *ngFor="let tag of device.tags">{{tag}} </span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</div>
