@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { MobileServicesService } from '../Services/mobile-services.service';
-//import { MessageService } from '../message.service';
+import { MessageService } from '../message.service';
 import { DEVICES } from '../helper-files/contentDb';
 @Component({
   selector: 'app-content-list',
@@ -10,7 +10,7 @@ import { DEVICES } from '../helper-files/contentDb';
 })
 export class ContentListComponent implements OnInit {
    
-  constructor(private contentService: MobileServicesService) {}
+  constructor(private contentService: MobileServicesService,public messageService: MessageService) {}
   arr:Content[]=[];
   
   device_id!: number;

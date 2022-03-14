@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { DEVICES } from '../helper-files/contentDb';
 import { Content } from '../helper-files/content-interface';
-//import { MessageService } from '../message.service';
+import { MessageService } from '../message.service';
 @Injectable({
   providedIn: 'root'
 })
 export class MobileServicesService {
 
- // constructor(private messageService: MessageService) { }
+ constructor(private messageService: MessageService) { }
 
   getContent(): Content[] { 
     return DEVICES;
   }
 
   getContentObs(): Observable<Content[]> { 
-  //  this.messageService.add('ContentService: fetched Devices'); 
+   this.messageService.add('ContentService: "Content array loaded!'); 
   return of(DEVICES);
 
   }

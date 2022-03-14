@@ -11,7 +11,49 @@
         </div>
     </div>
 </div>
- -->
+ --> 
+
+
+ <div class="single_device_wrapper">
+    <div class="input_wrapper_device_id">
+        <input type="text" [(ngModel)]="device_id" placeholder="Enter a device ID...">
+        <button (click)="showDevice(device_id)">Show the matched device..</button>
+    </div>
+
+    <ng-container *ngFor="let device of singleItem">
+        <div class="content-items-wrapper single_item">
+            <div class="content_image_wrapper"><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
+                    src={{device.imgURL}} class="card-img-top"></div>
+            <div class="content-card">
+                <h3 class="title"> {{device.title}} </h3>
+                <div><span class="id"> {{device.id}} </span></div>
+                <div><span class="description"> {{device.description}}</span></div>
+                <div class="creator"> {{device.creator}} </div>
+                <div class="content-type" my-affect="hve" class="btn text-center">{{device.type}} </div>
+
+                <div class="content-tags-wrapper">
+                    <span class="content-tags" my-affect="tagbd" *ngFor="let tag of device.tags">{{tag}} </span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</div> 
+
+
+
+
+ <div *ngIf="messageService.messages.length">
+
+    <h2>Messages</h2>
+    <button type="button" class="clear" (click)="messageService.clear()">Clear messages</button>
+    <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+</div>
+
+
+
+
 
 <h1 align="center">ALL THE DEVICES</h1>
 
@@ -81,28 +123,3 @@
     </ng-container>
 </div>
 
-<div class="single_device_wrapper">
-    <div class="input_wrapper_device_id">
-        <input type="text" [(ngModel)]="device_id" placeholder="Enter a device ID...">
-        <button (click)="showDevice(device_id)">Show the matched device..</button>
-    </div>
-
-    <ng-container *ngFor="let device of singleItem">
-        <div class="content-items-wrapper single_item">
-            <div class="content_image_wrapper"><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
-                    src={{device.imgURL}} class="card-img-top"></div>
-            <div class="content-card">
-                <h3 class="title"> {{device.title}} </h3>
-                <div><span class="id"> {{device.id}} </span></div>
-                <div><span class="description"> {{device.description}}</span></div>
-                <div class="creator"> {{device.creator}} </div>
-                <div class="content-type" my-affect="hve" class="btn text-center">{{device.type}} </div>
-
-                <div class="content-tags-wrapper">
-                    <span class="content-tags" my-affect="tagbd" *ngFor="let tag of device.tags">{{tag}} </span>
-                </div>
-            </div>
-        </div>
-    </ng-container>
-
-</div>
