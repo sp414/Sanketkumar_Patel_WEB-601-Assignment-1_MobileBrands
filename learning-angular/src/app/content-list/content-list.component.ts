@@ -9,7 +9,6 @@ import { DEVICES } from '../helper-files/contentDb';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent implements OnInit {
-   
   constructor(private contentService: MobileServicesService,public messageService: MessageService) {}
   arr:Content[]=[];
   
@@ -68,6 +67,8 @@ export class ContentListComponent implements OnInit {
     this.contentService.getIDCOntent(id).subscribe(singleitem => {
       this.singleItem = singleitem;
     });
+    //add to message service
+    this.messageService.add('Content item at id:' + Number(id));
   }
 
 }

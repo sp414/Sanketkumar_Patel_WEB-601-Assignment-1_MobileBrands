@@ -15,6 +15,7 @@ export class MobileServicesService {
   }
 
   getContentObs(): Observable<Content[]> { 
+     
    this.messageService.add('ContentService: "Content array loaded!'); 
   return of(DEVICES);
 
@@ -25,5 +26,8 @@ export class MobileServicesService {
       return device.id === Number(id);
     });
     return of(filteredDevice);
+    
   }  
+ 
+
 }
