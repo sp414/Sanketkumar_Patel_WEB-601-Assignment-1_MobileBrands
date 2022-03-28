@@ -1,8 +1,9 @@
-
-
 <div class="Site_container">
+  <div>
+    <app-modify-content-list (newContentEvent)="addToContentList($event)">
+    </app-modify-content-list>
+  </div>
   <div class="content-card-wrapper">
     <app-content-list></app-content-list>
   </div>
 </div>
-

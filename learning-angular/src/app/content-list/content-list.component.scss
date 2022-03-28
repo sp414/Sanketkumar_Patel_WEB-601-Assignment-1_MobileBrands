@@ -8,6 +8,7 @@
     justify-content: center;
     gap: 5px;
     text-align: center;
+    align-items: stretch;
 }
 
 .content-wrapper-tablet,
@@ -27,11 +28,13 @@
     border: 1px solid #d8d8dd;
     border-radius: 5px;
     margin: 0;
+    height: 100%;
 }
 
-.content-card {
+.card_content {
     text-align: center;
-    margin: 0 5px;
+    padding: 5px 5px;
+    height: 40%;
 }
 
 .content_image_wrapper {

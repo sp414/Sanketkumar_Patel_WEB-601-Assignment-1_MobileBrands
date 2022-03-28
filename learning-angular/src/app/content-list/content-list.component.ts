@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { MobileServicesService } from '../Services/mobile-services.service';
 import { MessageService } from '../message.service';
@@ -11,10 +11,9 @@ import { DEVICES } from '../helper-files/contentDb';
 export class ContentListComponent implements OnInit {
   constructor(private contentService: MobileServicesService,public messageService: MessageService) {}
   arr:Content[]=[];
-  
   device_id!: number;
   singleItem:Content[] = [];
- 
+
   deviceInfo($event: any){    
     console.log(`device id: ${$event.id}`,"device Title: "+$event.title+ $event.$mvnm)
   }    
@@ -57,7 +56,7 @@ export class ContentListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.contentService.getContentObs().subscribe(contentArray => {
+    this.contentService.getContent().subscribe(contentArray => {
       this.arr = contentArray; 
     });
   }
@@ -69,6 +68,11 @@ export class ContentListComponent implements OnInit {
     });
     //add to message service
     this.messageService.add('Content item at id:' + Number(id));
+  }
+
+  refreshContentList(contentList: Content[]): void {
+    this.messageService.add("Conent list array added with new items");
+    this.arr = [...this.arr, ...contentList];
   }
 
 }

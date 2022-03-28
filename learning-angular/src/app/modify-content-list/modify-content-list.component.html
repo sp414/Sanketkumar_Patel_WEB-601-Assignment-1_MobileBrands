@@ -1,0 +1,26 @@
+<div class="add_content_form_wrapper">
+    <div class="add_content_form">
+        <div>
+            Title: <input #title>
+        </div>
+        <div>
+            Description: <input #description>
+        </div>
+        <div>
+            Type: <input #type>
+        </div>
+        <div>
+            Creator: <input #creator>
+        </div>
+        <div>
+            Imagr URL: <input #imageURL>
+        </div>
+        <div>
+            tags: <input #tags>
+        </div>
+        <div>
+            <button (click)="addContent(title.value, description.value, type.value, creator.value, imageURL.value, tags.value)">Add Content Item</button>
+            <!-- <button (click)="updateFood(id.value, name.value, imageUrl.value, body.value, tags.value)">Update Content Item</button> -->
+        </div>
+    </div>
+</div>

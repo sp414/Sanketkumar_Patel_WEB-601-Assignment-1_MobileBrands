@@ -3,31 +3,44 @@ import { Observable, of } from 'rxjs';
 import { DEVICES } from '../helper-files/contentDb';
 import { Content } from '../helper-files/content-interface';
 import { MessageService } from '../message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MobileServicesService {
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type': 'application/json' })
+  };
+  contentList: Array<any> = [];
+  constructor(private messageService: MessageService, private http: HttpClient) { }
 
- constructor(private messageService: MessageService) { }
-
-  getContent(): Content[] { 
-    return DEVICES;
+  getContent(): Observable<Content[]> {
+    this.messageService.add('ContentService: "Content array loaded!');
+    return this.http.get<Content[]>("api/content");
   }
 
-  getContentObs(): Observable<Content[]> { 
-     
-   this.messageService.add('ContentService: "Content array loaded!'); 
-  return of(DEVICES);
-
+  addContent(newContentItem: Content): Observable<Content> {
+    return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
   }
-  
-  getIDCOntent(id:Number): Observable<Content[]> {
+
+  updateContent(contentItem: Content): Observable<any>{
+    return this.http.put("api/content", contentItem, this.httpOptions);
+  }
+
+  // getContentObs(): Observable<Content[]> {
+
+  //   this.messageService.add('ContentService: "Content array loaded!');
+  //   return of(DEVICES);
+
+  // }
+
+  getIDCOntent(id: Number): Observable<Content[]> {
     const filteredDevice = DEVICES.filter(device => {
       return device.id === Number(id);
     });
     return of(filteredDevice);
-    
-  }  
- 
+
+  }
 
 }

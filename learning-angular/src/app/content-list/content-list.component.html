@@ -1,4 +1,6 @@
+
 <!-- <app-create-content (addme)="addNewdevice($event)"></app-create-content>
+
 <div class="container">
     <div class="row height d-flex justify-content-center align-items-center">
         <div class="col-md-8">
@@ -10,8 +12,7 @@
             </div>
         </div>
     </div>
-</div>
- --> 
+</div> -->
 
 
  <div class="single_device_wrapper">
@@ -61,8 +62,8 @@
 <div class="content-wrapper">
     <ng-container *ngFor="let device of (arr)">
         <div class="content-items-wrapper" *ngIf="device.title !==ttl">
-            <div class='content_image_wrapper'><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
-                    src={{device.imgURL}} class="card-img-top">
+            <div class='content_image_wrapper'>
+                <img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''" src={{device.imgURL}} class="card-img-top">
             </div>
             <div class="card_content">
                 <h3 class="title"> {{device.title}} </h3>
