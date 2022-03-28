@@ -25,5 +25,13 @@ export class AppComponent {
       this.contentListComponent.refreshContentList(this.contentList);
     });
   }
+
+  updateContentList(newModifiedContent: Content): void {
+    this.contentService.updateContent(newModifiedContent).subscribe(() => {
+      console.log("Content updated successfully");
+      this.contentListComponent.refreshContentListAfterUpdate();
+    });
+  }
+
 }
 

@@ -75,4 +75,11 @@ export class ContentListComponent implements OnInit {
     this.arr = [...this.arr, ...contentList];
   }
 
+  refreshContentListAfterUpdate(): void {
+    this.messageService.add("Conent list item is successfully updated");
+    this.contentService.getContent().subscribe(contentArray => {
+      this.arr = contentArray;
+    })
+  }
+
 }

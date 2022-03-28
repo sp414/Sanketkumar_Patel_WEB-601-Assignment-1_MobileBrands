@@ -1,6 +1,6 @@
 <div class="Site_container">
   <div>
-    <app-modify-content-list (newContentEvent)="addToContentList($event)">
+    <app-modify-content-list (newContentEvent)="addToContentList($event)" (updateContentEvent)="updateContentList($event)">
     </app-modify-content-list>
   </div>
   <div class="content-card-wrapper">

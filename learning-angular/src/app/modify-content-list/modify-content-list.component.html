@@ -1,6 +1,9 @@
 <div class="add_content_form_wrapper">
     <div class="add_content_form">
         <div>
+            Item Id: <input #id>
+        </div>
+        <div>
             Title: <input #title>
         </div>
         <div>
@@ -19,8 +22,8 @@
             tags: <input #tags>
         </div>
         <div>
-            <button (click)="addContent(title.value, description.value, type.value, creator.value, imageURL.value, tags.value)">Add Content Item</button>
-            <!-- <button (click)="updateFood(id.value, name.value, imageUrl.value, body.value, tags.value)">Update Content Item</button> -->
+            <button #addButton id="addContentButton" (click)="addContent(id.value, title.value, description.value, type.value, creator.value, imageURL.value, tags.value)">Add Content Item</button>
+            <!-- <button (click)="updateContent(id.value, title.value, description.value, type.value, creator.value, imageURL.value, tags.value)">Update Content Item</button> -->
         </div>
     </div>
 </div>
