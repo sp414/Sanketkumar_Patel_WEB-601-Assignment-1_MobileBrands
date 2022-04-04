@@ -3,13 +3,16 @@ import { Content } from '../helper-files/content-interface';
 import { MobileServicesService } from '../Services/mobile-services.service';
 import { MessageService } from '../message.service';
 import { DEVICES } from '../helper-files/contentDb';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent implements OnInit {
-  constructor(private contentService: MobileServicesService,public messageService: MessageService) {}
+  constructor(private contentService: MobileServicesService, public messageService: MessageService, 
+    private _snackBar: MatSnackBar) {}
   arr:Content[]=[];
   device_id!: number;
   singleItem:Content[] = [];
@@ -71,7 +74,10 @@ export class ContentListComponent implements OnInit {
   }
 
   refreshContentList(contentList: Content[]): void {
-    this.messageService.add("Conent list array added with new items");
+    this._snackBar.open('Conent list array added with new items', '', {
+      duration: 1000    
+    });
+    //this.messageService.add('Conent list array added with new items');
     this.arr = [...this.arr, ...contentList];
   }
 

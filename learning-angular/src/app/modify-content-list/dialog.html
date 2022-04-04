@@ -1,0 +1,36 @@
+<!-- Dialog Html here-->
+<h1 mat-dialog-title>Add Electronic Devices</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>ID (ONLY FOR UDPATING)</mat-label>
+        <input [disabled]="true" matInput #id>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput #title>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput #description>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Type</mat-label>
+        <input matInput #type>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Creator</mat-label>
+        <input matInput #creator>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Image URL</mat-label>
+        <input matInput #imageURL>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Tags</mat-label>
+        <input matInput #tags>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+    <button mat-button (click)="okHandler(id.value, title.value, description.value, type.value, creator.value, imageURL.value, tags.value)">Ok</button>
+</div>

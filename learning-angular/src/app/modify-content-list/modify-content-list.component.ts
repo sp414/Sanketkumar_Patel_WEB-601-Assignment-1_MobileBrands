@@ -1,6 +1,8 @@
 import { Content } from '../helper-files/content-interface';
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MobileServicesService } from '../Services/mobile-services.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Dialog } from './dialog.component';
 
 @Component({
   selector: 'app-modify-content-list',
@@ -9,7 +11,7 @@ import { MobileServicesService } from '../Services/mobile-services.service';
 })
 export class ModifyContentListComponent implements OnInit {
 
-  constructor(private contentListService: MobileServicesService) { }
+  constructor(private contentListService: MobileServicesService, public dialog: MatDialog) { }
   newContent?: Content;
   contentList: Content[] = [];
   @Output() newContentEvent: EventEmitter<Content> = new EventEmitter<Content>();
@@ -68,6 +70,17 @@ export class ModifyContentListComponent implements OnInit {
   checkForContentItem(id: number) {
     const exisitingItem = this.contentList.find(item => item.id === id);
     return exisitingItem;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(Dialog, {
+      width: '350px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.addContent(result.id, result.title, result.description, 
+          result.type, result.creator, result.imageURL, result.tags);
+    });
   }
 
 }
