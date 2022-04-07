@@ -29,3 +29,6 @@
     </div>
 </div>
 <button (click)="adddevice(id.value, title.value, description.value, creator.value, imageURL.value, type.value, tags.value)">Add device Item</button>
+<div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+</div>

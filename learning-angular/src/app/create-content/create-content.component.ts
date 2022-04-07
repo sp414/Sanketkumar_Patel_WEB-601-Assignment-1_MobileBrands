@@ -7,40 +7,48 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./create-content.component.scss']
 })
 export class CreateContentComponent implements OnInit {
-  
+
   @Output() addme: EventEmitter<Content> = new EventEmitter<Content>();
- 
+  errorMessage: string = '';
+  
 
   ngOnInit(): void {
-   
+
   }
-  adddevice(id:string, title:string, description:string, creator:string, imageURL:string, type:string, tags:string): void {
-    var  newdevice: Content;
-    if(id!==null && title!==null && description!==null && creator!== null && imageURL!==null){
-     newdevice = {
-       id: parseInt(id),
-       type:type,
-       tags:tags.split(","),
-       title: title,
-       description:description ,
-       creator:creator,
-       imgURL:imageURL,
-    
-     };
-     this.addme.emit(newdevice);
-     alert("new device added");
-     var x:string[] = ['id','type','tags','title','description','creator','imageURL'];
-     x.forEach(element => {
-       var z = document.getElementById(element); 
-       console.log(z?.innerHTML);
-     });
+  adddevice(id: string, title: string, description: string, creator: string, imageURL: string, type: string, tags: string): void {
+    var newdevice: Content;
+    let successFullyAddedDevice = new Promise((resolve, reject) => {
+      if (id !== null && title !== '' && description !== '' && creator !== '' && imageURL !== '') {
+        newdevice = {
+          id: parseInt(id),
+          type: type,
+          tags: tags.split(","),
+          title: title,
+          description: description,
+          creator: creator,
+          imgURL: imageURL,
 
-    }
-    else{
-      alert("ID, TITLE, DESCRIPTION, CREATOR and IMAGE URL fields are compulsary")
-    }
+        };
+        this.addme.emit(newdevice);
+        alert("new device added");
+        var x: string[] = ['id', 'type', 'tags', 'title', 'description', 'creator', 'imageURL'];
+        x.forEach(element => {
+          var z = document.getElementById(element);
+          console.log(z?.innerHTML);
+        });
+      }
+      else {
+        reject('Some error');
+      }
+    });
+    successFullyAddedDevice.then((success) => {
+      
+    })
+    .catch(err =>  {
+      this.errorMessage = 'User must try to create the content again';
+    });
 
-    }
+  }
 }
 
 
