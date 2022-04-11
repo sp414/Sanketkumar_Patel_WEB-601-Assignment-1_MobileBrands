@@ -1,0 +1,18 @@
+<div *ngIf="contentDetail" class="content-detail">
+    <div class="content-type">
+        <div class="content-title">{{ contentDetail.title }}</div>
+        <div class="type">{{ contentDetail.type }}</div>
+        <div class="tags">
+            <mat-chip-list>
+                <mat-chip *ngFor="let tag of contentDetail.tags">{{tag}}</mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="content-decription-title">{{ contentDetail.description }}</div> 
+        <div><img src="{{contentDetail.imgURL}}"></div>
+    </div>
+    <div>
+        Go back to content list here.. <a routerLink="../../contentlist">Go back to the list</a>
+    </div>
+</div>

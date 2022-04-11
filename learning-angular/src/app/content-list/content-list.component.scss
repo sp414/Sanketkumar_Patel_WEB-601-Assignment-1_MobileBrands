@@ -33,11 +33,17 @@
             height: 40%;
             min-height: 300px;
             font-size: 1.5em;
+            cursor: pointer;
             .content-tags-wrapper {
                 border: 1px solid #070707;
                 .content-tags {
                     width: 100%;
                 } 
+            }
+            .open-content-detail_wrapper {
+                button {
+                    width: 100%;
+                }
             }
         }
     }

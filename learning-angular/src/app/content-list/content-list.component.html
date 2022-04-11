@@ -1,54 +1,4 @@
-
-<!-- <app-create-content (addme)="addNewdevice($event)"></app-create-content>
-
-<div class="container">
-    <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-8">
-            <div class="search">
-                <i class="fa fa-search"></i> <input type="text" id="mvnm" #mvnm class="form-control" placeholder="Search device">
-                <button (click)="isdevice(mvnm.value)" class="btn btn-primary">Search</button> &nbsp;
-                <div *ngIf="found" class="btn btn-success w-75">DEVICE FOUND</div> &nbsp;
-                <div *ngIf="notfound" class="btn btn-danger w-75">DEVICE NOT FOUND</div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
- <div class="single_device_wrapper">
-    <div class="input_wrapper_device_id">
-        <mat-form-field>
-            <input matInput type="text" [(ngModel)]="device_id" placeholder="Enter a device ID...">
-        </mat-form-field>
-        <button mat-flat-button color="warn" (click)="showDevice(device_id)">Show the matched device..</button>
-    </div>
-
-    <ng-container *ngFor="let device of singleItem">
-        <mat-card class="example-card">
-            <mat-card-content>
-                <div class="content-items-wrapper single_item">
-                    <div class="content_image_wrapper"><img (click)="deviceInfo(device)" *ngIf="device.imgURL !== ''"
-                            src={{device.imgURL}} class="card-img-top"></div>
-                    <div class="content-card">
-                        <h3 class="title"> {{device.title}} </h3>
-                        <div><span class="id"> {{device.id}} </span></div>
-                        <div><span class="description"> {{device.description}}</span></div>
-                        <div class="creator"> {{device.creator}} </div>
-                        <div class="content-type" my-affect="hve" class="btn text-center">{{device.type}} </div>
-                        <mat-chip-list>
-                            <mat-chip *ngFor="let tag of device.tags">{{tag}} </mat-chip>
-                        </mat-chip-list>
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </ng-container>
-</div> 
-
-
-
-
- <div *ngIf="messageService.messages.length">
+<div *ngIf="messageService.messages.length">
    <div class="content-message">
     <h2>Messages</h2>
     <button mat-flat-button color="warn" type="button" class="clear" (click)="messageService.clear()">Clear messages</button>
@@ -80,6 +30,11 @@
                         <mat-chip-list>
                             <mat-chip *ngFor="let tag of device.tags">{{tag}} </mat-chip>
                         </mat-chip-list>
+                        <div class="open-content-detail_wrapper">
+                            <button mat-flat-button color="primary" (click)="travelToContentDetail(device.id)">
+                                Clcik here to see detail of this device..
+                            </button>
+                        </div>
                     </div>
                 </div>
             </mat-card-content>
@@ -108,6 +63,11 @@
                             <mat-chip *ngFor="let tag of device.tags">{{tag}} </mat-chip>
                         </mat-chip-list>    
                         </div>
+                        <div class="open-content-detail_wrapper">
+                            <button mat-flat-button color="primary" (click)="travelToContentDetail(device.id)">
+                                Clcik here to see detail of this device..
+                            </button>
+                        </div>
                     </div>
                 </div>
             </mat-card-content>
@@ -135,6 +95,11 @@
                         <mat-chip-list>
                             <mat-chip *ngFor="let tag of device.tags">{{tag}}</mat-chip>
                         </mat-chip-list>
+                    </div>
+                    <div class="open-content-detail_wrapper">
+                        <button mat-flat-button color="primary" (click)="travelToContentDetail(device.id)">
+                            Clcik here to see detail of this device..
+                        </button>
                     </div>
                 </div>
             </mat-card-content>

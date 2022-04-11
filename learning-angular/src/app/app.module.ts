@@ -12,6 +12,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ModifyContentListComponent } from './modify-content-list/modify-content-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, ROUTES } from '@angular/router';
 
 //Angular Materials
 import { MatButtonModule }  from '@angular/material/button';
@@ -22,6 +24,9 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { HomePageComponentComponent } from './home-page-component/home-page-component.component';
+import { ContentDetailComponentComponent } from './content-detail-component/content-detail-component.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MessagesComponent,
     ModifyContentListComponent,
     Dialog,
+    PageNotFoundComponentComponent,
+    HomePageComponentComponent,
+    ContentDetailComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +56,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatInputModule,
     MatCardModule,
     MatChipsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function routes(routes: any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+

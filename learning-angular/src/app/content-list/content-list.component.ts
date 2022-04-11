@@ -4,6 +4,7 @@ import { MobileServicesService } from '../Services/mobile-services.service';
 import { MessageService } from '../message.service';
 import { DEVICES } from '../helper-files/contentDb';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content-list',
@@ -12,7 +13,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class ContentListComponent implements OnInit {
   constructor(private contentService: MobileServicesService, public messageService: MessageService, 
-    private _snackBar: MatSnackBar) {}
+    private _snackBar: MatSnackBar, private router: Router) {}
   arr:Content[]=[];
   device_id!: number;
   singleItem:Content[] = [];
@@ -64,14 +65,14 @@ export class ContentListComponent implements OnInit {
     });
   }
 
-  showDevice(id: Number) {
-    console.log(id);
-    this.contentService.getIDCOntent(id).subscribe(singleitem => {
-      this.singleItem = singleitem;
-    });
-    //add to message service
-    this.messageService.add('Content item at id:' + Number(id));
-  }
+  // showDevice(id: Number) {
+  //   console.log(id);
+  //   this.contentService.getIDCOntent(id).subscribe(singleitem => {
+  //     this.singleItem = singleitem;
+  //   });
+  //   //add to message service
+  //   this.messageService.add('Content item at id:' + Number(id));
+  // }
 
   refreshContentList(contentList: Content[]): void {
     this._snackBar.open('Conent list array added with new items', '', {
@@ -86,6 +87,10 @@ export class ContentListComponent implements OnInit {
     this.contentService.getContent().subscribe(contentArray => {
       this.arr = contentArray;
     })
+  }
+
+  travelToContentDetail(id?: number): void {
+    this.router.navigate(['/contentdetail', id]);
   }
 
 }

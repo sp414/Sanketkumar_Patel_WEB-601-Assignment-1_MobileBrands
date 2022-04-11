@@ -35,12 +35,8 @@ export class MobileServicesService {
 
   // }
 
-  getIDCOntent(id: Number): Observable<Content[]> {
-    const filteredDevice = DEVICES.filter(device => {
-      return device.id === Number(id);
-    });
-    return of(filteredDevice);
-
+  getIDCOntent(id: Number): Observable<Content> {
+    return this.http.get<Content>("api/content/" + id);
   }
 
 }
