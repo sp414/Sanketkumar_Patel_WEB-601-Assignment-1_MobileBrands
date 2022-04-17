@@ -1,4 +1,4 @@
-<div class="form-row">
+<!-- <div class="form-row">
     <div class="col-md-5 mb-3">
         <label for="ID">Enter ID of device</label>
         <input type="number" class="form-control" id="ID" #id placeholder="Enter Id">
@@ -27,8 +27,43 @@
         <label for="tags">Tags</label>
         <input type="text" class="form-control" id="tags" #tags placeholder="Tags separated by ,">
     </div>
+</div> --> 
+
+<div>
+    ID: <input [(ngModel)]="Id">
 </div>
-<button (click)="adddevice(id.value, title.value, description.value, creator.value, imageURL.value, type.value, tags.value)">Add device Item</button>
+<div>
+    Title: <input [(ngModel)]="newdevice.title">
+</div>
+
+<div>
+    description: <input [(ngModel)]="newdevice.description">
+</div>
+
+<div>
+    Creator: <input [(ngModel)]="newContent.creator">
+</div>
+
+<div>
+    Image: <input [(ngModel)]="newdevice.ImageURL">
+</div>
+
+<div>
+    Type: <input [(ngModel)]="newdevice.type">
+</div>
+
+<div>
+    Tags: <input [(ngModel)]="Tags">
+</div>
+
+<div>
+    <button (click)="adddevice()">Add New device</button>
+</div>
 <div class="error" *ngIf="errorMessage">
     {{ errorMessage }}
 </div>
+
+<!-- <button (click)="adddevice(id.value, title.value, description.value, creator.value, imageURL.value, type.value, tags.value)">Add device Item</button>
+<div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+</div> -->
