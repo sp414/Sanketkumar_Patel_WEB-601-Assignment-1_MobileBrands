@@ -16,17 +16,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, ROUTES } from '@angular/router';
 
 //Angular Materials
-import { MatButtonModule }  from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { Dialog } from './modify-content-list/dialog.component';
 import { MatInputModule } from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { HomePageComponentComponent } from './home-page-component/home-page-component.component';
 import { ContentDetailComponentComponent } from './content-detail-component/content-detail-component.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,13 @@ import { ContentDetailComponentComponent } from './content-detail-component/cont
     MatCardModule,
     MatChipsModule,
     MatSnackBarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

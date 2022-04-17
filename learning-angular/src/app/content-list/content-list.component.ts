@@ -3,8 +3,9 @@ import { Content } from '../helper-files/content-interface';
 import { MobileServicesService } from '../Services/mobile-services.service';
 import { MessageService } from '../message.service';
 import { DEVICES } from '../helper-files/contentDb';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { CheckUpdateService } from '../Services/check-update.service';
 
 @Component({
   selector: 'app-content-list',
@@ -12,57 +13,62 @@ import { Router } from '@angular/router';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent implements OnInit {
-  constructor(private contentService: MobileServicesService, public messageService: MessageService, 
-    private _snackBar: MatSnackBar, private router: Router) {}
-  arr:Content[]=[];
+  constructor(private contentService: MobileServicesService,
+    public messageService: MessageService,
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private checkUpdateSWService: CheckUpdateService) { }
+  arr: Content[] = [];
   device_id!: number;
-  singleItem:Content[] = [];
+  singleItem: Content[] = [];
 
-  deviceInfo($event: any){    
-    console.log(`device id: ${$event.id}`,"device Title: "+$event.title+ $event.$mvnm)
-  }    
-  found:boolean = false;
-  notfound:boolean = false;
-  ttl:string = '';
+  deviceInfo($event: any) {
+    console.log(`device id: ${$event.id}`, "device Title: " + $event.title + $event.$mvnm)
+  }
+  found: boolean = false;
+  notfound: boolean = false;
+  ttl: string = '';
 
-  isdevice($mvnm:string){
-    var flag:Boolean = false;  
-    this.arr.forEach((elem)=>{
-      
-      if(elem.title.toLowerCase().includes($mvnm.toLowerCase())){
+  isdevice($mvnm: string) {
+    var flag: Boolean = false;
+    this.arr.forEach((elem) => {
+
+      if (elem.title.toLowerCase().includes($mvnm.toLowerCase())) {
         this.ttl = elem.title;
         this.found = true;
         this.notfound = false;
         flag = true;
-        setTimeout(()=>{
+        setTimeout(() => {
           this.found = false;
         }, 2000)
       }
     });
-    if(!flag){
+    if (!flag) {
       this.notfound = true;
       this.found = false;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.notfound = false;
       }, 2000)
     }
-    
+
     // return x;
-    console.log("device FOUND STATUS: ",this.found);
-   }
-   addNewdevice(device:Content){
-    if(device){
-    this.arr.push(device);
-    this.arr = this.arr.slice();
+    console.log("device FOUND STATUS: ", this.found);
+  }
+  addNewdevice(device: Content) {
+    if (device) {
+      this.arr.push(device);
+      this.arr = this.arr.slice();
     }
   }
 
 
 
   ngOnInit(): void {
+    this.ttl = 'qnvcvmcvcvc'; //build will change after this
     this.contentService.getContent().subscribe(contentArray => {
-      this.arr = contentArray; 
+      this.arr = contentArray;
     });
+    this.checkUpdateSWService.init();
   }
 
   // showDevice(id: Number) {
@@ -76,7 +82,7 @@ export class ContentListComponent implements OnInit {
 
   refreshContentList(contentList: Content[]): void {
     this._snackBar.open('Conent list array added with new items', '', {
-      duration: 1000    
+      duration: 1000
     });
     //this.messageService.add('Conent list array added with new items');
     this.arr = [...this.arr, ...contentList];
