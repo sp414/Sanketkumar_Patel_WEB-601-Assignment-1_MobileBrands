@@ -30,40 +30,40 @@
 </div> --> 
 
 <div>
-    ID: <input [(ngModel)]="Id">
+    ID: <input [(ngModel)]="newDevice.id">
 </div>
 <div>
-    Title: <input [(ngModel)]="newdevice.title">
-</div>
-
-<div>
-    description: <input [(ngModel)]="newdevice.description">
+    Title: <input [(ngModel)]="newDevice.title">
 </div>
 
 <div>
-    Creator: <input [(ngModel)]="newContent.creator">
+    description: <input [(ngModel)]="newDevice.description">
 </div>
 
 <div>
-    Image: <input [(ngModel)]="newdevice.ImageURL">
+    Creator: <input [(ngModel)]="newDevice.creator">
 </div>
 
 <div>
-    Type: <input [(ngModel)]="newdevice.type">
+    Image: <input [(ngModel)]="newDevice.imgURL">
 </div>
 
 <div>
-    Tags: <input [(ngModel)]="Tags">
+    Type: <input [(ngModel)]="newDevice.type">
 </div>
 
 <div>
-    <button (click)="adddevice()">Add New device</button>
+    Tags: <input [(ngModel)]="newDevice.tags">
+</div>
+
+<div>
+    <button (click)="adddevice()">Add device Item</button>
 </div>
 <div class="error" *ngIf="errorMessage">
     {{ errorMessage }}
 </div>
 
-<!-- <button (click)="adddevice(id.value, title.value, description.value, creator.value, imageURL.value, type.value, tags.value)">Add device Item</button>
+<!-- 
 <div class="error" *ngIf="errorMessage">
     {{ errorMessage }}
 </div> -->

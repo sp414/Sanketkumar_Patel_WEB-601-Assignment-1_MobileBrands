@@ -10,23 +10,21 @@ export class CreateContentComponent implements OnInit {
 
   @Output() addme: EventEmitter<Content> = new EventEmitter<Content>();
   errorMessage: string = '';
-  
+  newDevice: any = {};
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-
-  }
-  adddevice(id: string, title: string, description: string, creator: string, imageURL: string, type: string, tags: string): void {
-    var newdevice: Content;
+  adddevice(): void {
+    var newdevice = this.newDevice;
     let successFullyAddedDevice = new Promise((resolve, reject) => {
-      if (id !== null && title !== '' && description !== '' && creator !== '' && imageURL !== '') {
+      if (this.newDevice.id !== null && this.newDevice.title !== '' && this.newDevice.description !== '' && this.newDevice.creator !== '' && this.newDevice.imgURL !== '') {
         newdevice = {
-          id: parseInt(id),
-          type: type,
-          tags: tags.split(","),
-          title: title,
-          description: description,
-          creator: creator,
-          imgURL: imageURL,
+          id: parseInt(this.newDevice.id),
+          type: this.newDevice.type,
+          tags: this.newDevice.tags.split(","),
+          title: this.newDevice.title,
+          description: this.newDevice.description,
+          creator: this.newDevice.creator,
+          imgURL: this.newDevice.imgURL,
 
         };
         this.addme.emit(newdevice);
@@ -42,14 +40,11 @@ export class CreateContentComponent implements OnInit {
       }
     });
     successFullyAddedDevice.then((success) => {
-      
-    })
-    .catch(err =>  {
+
+    }).catch(err => {
       this.errorMessage = 'User must try to create the content again';
     });
-
   }
 }
-
 
 
