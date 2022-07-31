@@ -14,7 +14,7 @@ export const DEVICES:Content[] = [
         title: "Samsung S20",
         description: "Best camera phone",
         creator: "Samsung",
-        imgURL: "../assets/samsung-s20.jpg",
+        imgURL: "https://i.ebayimg.com/images/g/JdoAAOSwz4leRBs-/s-l500.jpg",
         type: "Smart Phone",
         tags: ["appliances", "smartphone"]
       },
@@ -23,7 +23,7 @@ export const DEVICES:Content[] = [
         title: "Google pixel 6",
         description: "Best Proceessor",
         creator: "Google",
-        imgURL: "../assets/Google-pixel.jpg",
+        imgURL: "https://i.ebayimg.com/images/g/l9AAAOSwzAVieqbY/s-l500.jpg",
         type: "Smart Phone",
         tags: ["appliances", "smartphone"]
       },
